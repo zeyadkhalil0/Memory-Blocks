@@ -1,0 +1,140 @@
+*{
+        box-sizing: border-box;
+        font-family: Arial, Tahoma, sans-serif;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 200px;
+}
+.control-button{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #2195f3be;
+}
+.control-button span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #f44336;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+
+}
+.info{
+    width: 1080px;
+    background-color: #f6f6f6;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto ;
+    padding: 20px;
+    border: 2px solid #2196f3;
+    font-size: 18px;
+}
+
+.game-container{
+    width: 1080px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.game-container .box{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+.game-container .box .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.game-container .box .front{
+    background-color: #4b7c85;
+    border: 4px solid #2196f3;
+    transform: rotateY(0deg);
+}
+
+.game-container .box .front::before{
+    content: "!";
+    color: #111;
+    width: 100%;
+    height: 100%;
+    font-size: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.game-container .box .back{
+    transform: rotateY(180deg);
+}
+
+
+
+.game-container .box .back img{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+ 
+.game-container .box.is-flipped {
+    transform: rotateY(180deg);
+    pointer-events: none;
+  }
+  
+  .game-container .box.has-match {
+    transform: rotateY(180deg);
+    pointer-events: none;
+  }
+  /* To Stop Flipped Cards */
+  .no-clicking{
+    pointer-events: none;
+  } 
+
+  .is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  
+ /* * Media Screen */
+ 
+ /* * Mobile  */
+ @media  ( max-width: 768px ){
+.game-container .box{
+    width: 80px;
+    height: 80px;
+}
+.game-container .box .front::before{
+    content: "!";
+    font-size: 60px;
+}
+.game-container .box .back img{
+    width : 80px;
+    height: 80px;
+}
+ };

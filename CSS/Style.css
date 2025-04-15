@@ -2,7 +2,9 @@
     box-sizing: border-box;
     font-family: Arial, Tahoma, sans-serif;
 }
-
+body{
+    height: 200vh;
+}
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -148,7 +150,7 @@ footer p {
 /* * Mobile  */
 @media (max-width: 768px) {
     body{
-        height: 100vh;
+        height: 120vh;
     }
     .game-container .box {
         width: 80px;
@@ -173,6 +175,9 @@ footer p {
 
 /* Small Mobile */
 @media only screen and (max-width: 380px) {
+    body{
+        height: 120vh;
+    }
     .game-container .box {
         width: 50px;
         height: 50px;

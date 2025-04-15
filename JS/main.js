@@ -69,7 +69,7 @@ function flipblock(selectedblock) {
 
     // Disable clicking temporarily
     container.classList.add("no-clicking");
-
+    // * Matched Block
     if (
       firstCard.getAttribute("data-game") ===
       secondCard.getAttribute("data-game")
@@ -82,6 +82,7 @@ function flipblock(selectedblock) {
         secondCard.classList.remove("is-flipped");
         firstCard.classList.add("has-match");
         secondCard.classList.add("has-match");
+        document.getElementById("Success").play();
 
         checkGameOver();
       }, duration / 2);
@@ -91,8 +92,8 @@ function flipblock(selectedblock) {
         firstCard.classList.remove("is-flipped");
         secondCard.classList.remove("is-flipped");
       }, duration);
-
-      // Increment wrong tries
+      document.getElementById("Fail").play();
+      // * Increment wrong tries
       let wrongTries = document.querySelector(".tries span");
       wrongTries.textContent = parseInt(wrongTries.textContent) + 1;
     }
@@ -117,7 +118,7 @@ function checkGameOver() {
   }
 }
 
-// *Dark Mode
+// * Dark Mode
 let mode = document.getElementById("mode");
 let body = document.getElementById("change");
 const moon = "imge/moon.png";
@@ -136,3 +137,4 @@ mode.addEventListener("click", (eo) => {
     mode.src = moon;
   }
 });
+

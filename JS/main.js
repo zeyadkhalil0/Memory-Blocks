@@ -8,14 +8,20 @@ document.querySelector(".control-button span").onclick = function () {
   }
 
   // * Remove splash screen
-  document.querySelector(".control-button").remove();
-
-  // Flip all cards at start
-  boxs.forEach(box => box.classList.add("is-flipped"));
-
-  // After 3 seconds, flip them back
+  // document.querySelector(".control-button span").remove();
+  // * fade out
+  let controlBtn = document.querySelector(".control-button ");
+  controlBtn.classList.add("fade-out");
   setTimeout(() => {
-    boxs.forEach(box => box.classList.remove("is-flipped"));
+    controlBtn.remove();
+  }, 1000);
+
+  // * Flip all cards at start
+  boxs.forEach((box) => box.classList.add("is-flipped"));
+
+  // * After 3 seconds, flip them back
+  setTimeout(() => {
+    boxs.forEach((box) => box.classList.remove("is-flipped"));
   }, 3000);
 };
 
@@ -37,7 +43,9 @@ boxs.forEach((box, index) => {
 
 // * Shuffle Function
 function shuffle(array) {
-  let current = array.length, temp, random;
+  let current = array.length,
+    temp,
+    random;
   while (current > 0) {
     random = Math.floor(Math.random() * current);
     current--;
@@ -52,7 +60,7 @@ function shuffle(array) {
 function flipblock(selectedblock) {
   selectedblock.classList.add("is-flipped");
 
-  let allFlipped = boxs.filter(block =>
+  let allFlipped = boxs.filter((block) =>
     block.classList.contains("is-flipped")
   );
 
@@ -62,7 +70,10 @@ function flipblock(selectedblock) {
     // Disable clicking temporarily
     container.classList.add("no-clicking");
 
-    if (firstCard.getAttribute("data-game") === secondCard.getAttribute("data-game")) {
+    if (
+      firstCard.getAttribute("data-game") ===
+      secondCard.getAttribute("data-game")
+    ) {
       // Match found
       setTimeout(() => {
         firstCard.classList.add("is-hidden");
@@ -95,13 +106,33 @@ function flipblock(selectedblock) {
 
 // * Game Over Check
 function checkGameOver() {
-  let matchedCards = boxs.filter(card =>
+  let matchedCards = boxs.filter((card) =>
     card.classList.contains("has-match")
   );
 
   if (matchedCards.length === boxs.length) {
     setTimeout(() => {
-      alert("🎉 Congratulations! You have completed the game.");
+      alert(" Congratulations! You have completed the game.🎉");
     }, 500);
   }
 }
+
+// *Dark Mode
+let mode = document.getElementById("mode");
+let body = document.getElementById("change");
+const moon = "imge/moon.png";
+const sun = "imge/sun.png";
+mode.addEventListener("click", (eo) => {
+  body.classList.toggle("dark");
+  mode.classList.add("fade-out");
+  body.classList.add("fade-out");
+  setTimeout(() => {
+    mode.classList.remove("fade-out");
+    body.classList.remove("fade-out");
+  }, 500);
+  if (body.classList.contains("dark")) {
+    mode.src = sun;
+  } else {
+    mode.src = moon;
+  }
+});

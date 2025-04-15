@@ -7,24 +7,29 @@
     <title>Memory Game</title>
     <!-- Css -->
     <link rel="stylesheet" href="CSS/Style.css">
+    <link rel="stylesheet" href="CSS/dark.css">
+    <link rel="icon" href="imge/joystick_808439.png">
 </head>
 
-<body>
+<body id="change" >
+    <!-- * Start Button -->
     <div class="control-button">
         <span>Start Game</span>
     </div>
+    <!-- * Blocks -->
     <section class="container">
         <div class="info">
             <div class="name">
                 Hello: <Span></Span>
             </div>
+            <div class="switch">
+                <img id="mode" src="imge/moon.png" alt="">
+            </div>
             <div class="tries">
                 Wrong Tries <span>0</span>
             </div>
         </div>
-
         <div class="game-container">
-
             <div class="box" data-game="tiger">
                 <div class="face front"></div>
                 <div class="face back">
@@ -147,7 +152,12 @@
             </div>
         </div>
     </section>
-    <!-- JS-Path -->
+    <!-- * Footer -->
+    <footer>
+        <p>© 2025. All Rights Reserved.
+            Made-by-dev | Zeyad-Khalil</p>
+    </footer>
+    <!-- * JS-Path -->
     <script src="JS/main.js"></script>
 </body>
 

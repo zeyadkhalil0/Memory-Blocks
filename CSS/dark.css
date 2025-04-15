@@ -1,0 +1,36 @@
+.info .switch img {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.switch img:hover {
+    transform: rotate(20deg);
+}
+
+ .dark {background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
+    -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
+    -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
+}
+
+.dark .info {background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
+    -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
+    -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
+    border: 2px solid white;
+}
+
+.dark .info .name,
+.dark .tries {
+    color: white;
+}
+
+.dark .game-container .box .front {background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0.69));
+    -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0.69));
+    -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0.69));
+    border: 2px solid white;
+}
+.dark .game-container .box .front::before{
+    color:white;
+}
+
+  
+    

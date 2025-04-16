@@ -6,6 +6,15 @@ document.querySelector(".control-button span").onclick = function () {
   } else {
     document.querySelector(".name span").innerHTML = yourname;
   }
+  //  * Paly With Timer
+  let playWithTimer = confirm("Are you wanna play with timer?");
+  let count = document.querySelector(".timer");
+  if (playWithTimer && count) {
+    count.classList.remove("off");  // Show the timer
+    startGameTimer();               // Start the timer
+  } else if (count) {
+    count.classList.add("off");     // Make sure it's hidden
+  }
 
   // * Remove splash screen
   // document.querySelector(".control-button span").remove();
@@ -69,6 +78,7 @@ function flipblock(selectedblock) {
 
     // Disable clicking temporarily
     container.classList.add("no-clicking");
+
     // * Matched Block
     if (
       firstCard.getAttribute("data-game") ===
@@ -138,3 +148,38 @@ mode.addEventListener("click", (eo) => {
   }
 });
 
+// * Timer
+function startGameTimer() {
+  let timerDisplay = document.querySelector(".timer span");
+  let seconds = 80; // Set the timer duration here
+  timerDisplay.textContent = seconds;
+
+  let countdown = setInterval(() => {
+    seconds--;
+    timerDisplay.textContent = seconds;
+
+    // Check if time is up
+    if (seconds <= 0) {
+      clearInterval(countdown);
+      document.getElementById("Fail").play();
+      // * Apply fade-out effect to all cards
+      boxs.forEach((box) => {
+        box.classList.add("fade-out"); // Make sure this class exists in your CSS
+      });
+
+      // * Show alert after fade-out animation
+      setTimeout(() => {
+        alert(" Time's up!⏰");
+        location.reload(); // Reload the game (optional)
+      }, 1000);
+    }
+
+    // Check if game is completed before time runs out
+    let matchedCards = boxs.filter((card) =>
+      card.classList.contains("has-match")
+    );
+    if (matchedCards.length === boxs.length) {
+      clearInterval(countdown); // Stop the timer if all cards are matched
+    }
+  }, 1000);
+}

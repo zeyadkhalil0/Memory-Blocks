@@ -151,7 +151,7 @@ mode.addEventListener("click", (eo) => {
 // * Timer
 function startGameTimer() {
   let timerDisplay = document.querySelector(".timer span");
-  let seconds = 80; // Set the timer duration here
+  let seconds = 60; // Set the timer duration here
   timerDisplay.textContent = seconds;
 
   let countdown = setInterval(() => {

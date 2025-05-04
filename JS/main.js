@@ -76,7 +76,7 @@ document.querySelector(".control-button span").onclick = function () {
     allCards.forEach((card) => card.classList.add("hide"));
     // Show the selected level cards
     if (selectedLevel === "easy") {
-      seconds = 20; //? Time For Easy Level
+      seconds = 15; //? Time For Easy Level
       let easyCards = document.querySelectorAll(".box[data-level='easy']");
       easyCards.forEach((card, index) => {
         if (index < 14) {
@@ -85,7 +85,7 @@ document.querySelector(".control-button span").onclick = function () {
         }
       });
     } else if (selectedLevel === "intermediate") {
-      seconds = 15; //? Time For intermediate Level
+      seconds = 25; //? Time For intermediate Level
       let intermediateCards = document.querySelectorAll(
         ".box[data-level='easy'], .box[data-level='intermediate']"
       );

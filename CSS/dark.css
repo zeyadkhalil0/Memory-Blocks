@@ -1,16 +1,9 @@
-.info .switch img {
-    cursor: pointer;
-    transition: 0.5s;
-}
 
-.switch img:hover {
-    transform: rotate(20deg);
-}
-
- .dark {background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
-    -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
-    -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
-}
+.dark {
+  background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
+  -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
+   -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(103, 116, 103, 1));
+  }
 
 .dark .info {background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
     -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
@@ -18,9 +11,26 @@
     border: 2px solid white;
 }
 
+.info .switch img {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.switch img:hover {
+  transform: rotate(20deg);
+}
+
 .dark .info .name,
 .dark .tries {
+  color: white;
+}
+
+.dark .timer{
+    font-size: 16px;
     color: white;
+    background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
+    -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
+    -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
 }
 
 .dark .game-container .box .front {background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0.69));
@@ -32,10 +42,5 @@
     color:white;
 }
 
-.dark .timer{
-    font-size: 18px;
-    color: white;
-    background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
-    -webkit-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
-    -moz-background: linear-gradient(37deg, rgba(56, 77, 73, 0.97), rgba(79, 140, 100, 0));
-}
+
+

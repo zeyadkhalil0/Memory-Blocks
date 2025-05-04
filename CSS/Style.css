@@ -1,44 +1,109 @@
+/* Start Global */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Arial, Tahoma, sans-serif;
 }
 
 body {
     position: relative;
-    height: 200vh;
+    height: 250vh;
+    background: #269bc9;
+    background: linear-gradient(90deg, rgba(38, 155, 201, 0.952) 0%, rgba(87, 199, 134, 0.582) 74%, rgba(187, 214, 99, 0.671) 100%, rgba(237, 221, 83, 1) 100%);
 }
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 0 200px;
-}
-
-.container .switch img {
-    width: 25px;
-    height: 25px;
-}
-
-.timer {
-    font-family: sans-serif;
-    position: fixed;
-    padding: 8px;
-    color: white;
-    background-color: #4c93a0;
-    z-index: 3;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 15px;
-    top: 8%;
-}
-
-.timer span {
-    font-weight: bold;
-    color: #f13f32;
-}
-.off{
+.off {
     display: none;
 }
+
+.hide {
+    display: none !important;
+    pointer-events: none;
+}
+
+/* To Stop Flipped Cards */
+.no-clicking {
+    pointer-events: none;
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+/* end Global  */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    z-index: 99;
+    transition: opacity 1s;
+}
+.welcome-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+#welcome-text {
+    animation: fadeInOut 1.5s ease-in-out forwards;
+}
+
+.select-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    background-color: #2196f3;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    z-index: 9;
+    box-shadow: 1px 5px 31px -3px rgba(227, 57, 57, 0.75);
+    -webkit-box-shadow: 1px 5px 31px -3px rgba(227, 57, 57, 0.75);
+    -moz-box-shadow: 1px 5px 31px -3px rgba(227, 57, 57, 0.75);
+}
+.select-level select {
+    font-size: 24px;
+    border-style: none;
+    cursor: pointer;
+    font-weight: 550;
+    border-radius: 6px;
+    color: black;
+}
+.select-level option {
+    font-size: 18px;
+    font-weight: 600;
+}
+#choose-level {
+    cursor: pointer;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    background-color: #f03326;
+    border-style: none;
+    border-radius: 8px;
+}
+
 .control-button {
     position: fixed;
     left: 0;
@@ -48,8 +113,6 @@ body {
     z-index: 2;
     background-color: #2195f3be;
 }
-
-
 .control-button span {
     position: absolute;
     left: 50%;
@@ -66,16 +129,47 @@ body {
 
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 200px;
+}
+
 .info {
     width: 1080px;
-    background-color: #f6f6f6;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px auto;
     padding: 20px;
-    border: 2px solid #2196f3;
+    border: 2px solid #1c2831;
     font-size: 18px;
+    border-radius: 10px;
+    background: #2A7B9B;
+background: linear-gradient(90deg, rgb(80, 196, 196) 0%, rgba(91, 197, 135, 0.76) 50%, rgba(255, 255, 255, 0.479) 100%);
+}
+.switch img {
+    width: 25px;
+    height: 25px;
+}
+
+.timer {
+    font-family: sans-serif;
+    position: fixed;
+    padding: 8px;
+    margin-left: 10px;
+    color: rgb(255, 255, 255);
+    background-color: #a1eecabe;
+    z-index: 3;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    top: 7%;
+}
+.timer span {
+    font-weight: bold;
+    color: #f13f32;
 }
 
 .game-container {
@@ -106,17 +200,19 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    border-radius: 8px;
 }
 
 .game-container .box .front {
-    background-color: #4b7c85;
-    border: 4px solid #2196f3;
+    background: #e05858;
+    background: linear-gradient(255deg, rgb(160, 252, 206) 0%, rgba(0, 0, 0, 0.281) 32%, rgb(148, 227, 243) 81%);
+    border: 2px solid #0f1316;
     transform: rotateY(0deg);
 }
 
 .game-container .box .front::before {
     content: "!";
-    color: #111;
+    color: white;
     width: 100%;
     height: 100%;
     font-size: 140px;
@@ -130,12 +226,11 @@ body {
     transform: rotateY(180deg);
 }
 
-
-
 .game-container .box .back img {
     width: 200px;
     height: 200px;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .game-container .box.is-flipped {
@@ -148,36 +243,45 @@ body {
     pointer-events: none;
 }
 
-/* To Stop Flipped Cards */
-.no-clicking {
-    pointer-events: none;
-}
-
-.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-
-}
-
 footer p {
+    position: absolute;
     text-align: center;
     font-size: 18px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
 }
-
+.video{
+      display: none;  
+}
 /* * Media Screen */
-
-/* * Mobile  */
+/*  Mobile  */
 @media (max-width: 768px) {
     body {
-        height: 120vh;
+        height: 150vh;
+    }
+    
+    .welcome-screen{
+        font-size: 24px;
+        text-align: center;
     }
 
+    .select-level {
+        width: calc(100% - 80px);
+    }
+
+    .select-level select {
+        font-size: 18px;
+    }
+
+    .select-level option {
+        font-size: 10px;
+    }
+
+    .info{
+        margin: 14px;
+    }
     .game-container .box {
         width: 80px;
         height: 80px;
@@ -196,12 +300,12 @@ footer p {
     .timer {
         position: relative;
         left: 50%;
-        transform: translate(-50% ,-50%);
+        transform: translate(-50%, -50%);
         color: black;
         margin: 16px 0 0;
         font-size: 18px;
     }
-    
+
 
     footer p {
         text-align: center;
@@ -209,25 +313,29 @@ footer p {
     }
 }
 
-/* mall Mobile */
+/* small Mobile */
 @media only screen and (max-width: 380px) {
     body {
-        height: 120vh;
+        height: 140vh;
+    }
+
+    .info {
+        font-size: 14px;
     }
 
     .game-container .box {
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 80px;
     }
 
     .game-container .box .front::before {
         content: "!";
-        font-size: 40px;
+        font-size: 50px;
     }
 
     .game-container .box .back img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 
     footer p {
@@ -236,4 +344,20 @@ footer p {
     }
 }
 
-;
+/* Key Farmes */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}

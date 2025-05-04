@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
     <!-- Css -->
-    <link rel="stylesheet" href="CSS/Style.css">
     <link rel="stylesheet" href="CSS/dark.css">
+    <link rel="stylesheet" href="CSS/Style.css">
     <link rel="icon" href="imge/joystick_808439.png">
 </head>
 
 <body id="change">
+    <div class="welcome-screen">
+        <span id="welcome-text"></span>
+    </div>
+    <!-- * Select level -->
+    <div class="select-level hide" id="level">
+        <label for="level">Choose Level:</label>
+        <select id="selected-level">
+            <option value="easy">Easy</option>
+            <option value="intermediate">intermediate</option>
+            <option value="hard">Hard</option>
+        </select>
+        <button id="choose-level">Confirm</button>
+    </div>
+
     <!-- * Start Button -->
     <div class="control-button">
         <span>Start Game</span>
@@ -34,132 +48,196 @@
             <span></span>
         </div>
         <div class="game-container">
-            <div class="box" data-game="tiger">
+            <!-- 14 Card for Easy Level -->
+            <div class="box hide" data-game="tiger" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/tiger.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="tiger">
+            <div class="box hide" data-game="tiger" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/tiger.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="cannon">
+            <div class="box hide" data-game="cannon" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/cannon.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="cannon">
+            <div class="box hide" data-game="cannon" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/cannon.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="cartoon">
+            <div class="box hide" data-game="cartoon" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/cartoon.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="cartoon">
+            <div class="box hide" data-game="cartoon" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/cartoon.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="old">
+            <div class="box hide" data-game="old" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/old.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="old">
+            <div class="box hide" data-game="old" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/old.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="man">
+            <div class="box hide" data-game="man" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/man.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="man">
+            <div class="box hide" data-game="man" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/man.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="police">
+            <div class="box hide" data-game="police" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/police.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="police">
+            <div class="box hide" data-game="police" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/police.png" alt="">
                 </div>
             </div>
-            <div class="box" data-game="war">
+            <div class="box hide" data-game="war" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/war.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="war">
+            <div class="box hide" data-game="war" data-level="easy">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/war.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="girl">
+            <!-- 8 Card for Intermediate Level -->
+            <div class="box hide " data-game="girl" data-level="intermediate">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/girl.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="girl">
+            <div class="box hide " data-game="girl" data-level="intermediate">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/girl.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="animi">
+            <div class="box hide " data-game="animi" data-level="intermediate">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/animi.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="animi">
+            <div class="box hide " data-game="animi" data-level="intermediate">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/animi.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="phone">
+            <div class="box hide " data-game="phone" data-level="intermediate">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/phone.jpg" alt="">
                 </div>
             </div>
-            <div class="box" data-game="phone">
+            <div class="box hide " data-game="phone" data-level="intermediate">
                 <div class="face front"></div>
                 <div class="face back">
                     <img src="imge/phone.jpg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="jerry" data-level="intermediate">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/jerry.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="jerry" data-level="intermediate">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/jerry.jpeg" alt="">
+                </div>
+            </div>
+
+            <!-- Remaining Cards for Hard Level -->
+            <div class="box hide " data-game="boy" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/boy.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="boy" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/boy.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="duck" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/duck.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="duck" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/duck.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="hero" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/hero.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="hero" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/hero.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="basset" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/basset.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box hide " data-game="basset" data-level="hard">
+                <div class="face front"></div>
+                <div class="face back">
+                    <img src="imge/basset.jpeg" alt="">
                 </div>
             </div>
         </div>
     </section>
     <!-- * Footer -->
-    <footer>
+     <footer id="footer">
         <p>© 2025. All Rights Reserved.
-            Made-by-dev | Zeyad-Khalil</p>
+            Made By Dev | ZeYadKhalil</p>
     </footer>
     <!-- * Aduio -->
     <audio id="Success" src="audio/Success.m4a" preload="auto"></audio>
@@ -167,4 +245,5 @@
     <!-- * JS-Path -->
     <script src="JS/main.js"></script>
 </body>
+
 </html>

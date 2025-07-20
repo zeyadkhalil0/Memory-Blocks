@@ -1,5 +1,4 @@
 // * Global
-let isTimerMode = false;
 let seconds = 0;
 let footer = document.getElementById("footer");
 footer.classList.add("hide");
@@ -71,7 +70,7 @@ document.querySelector(".control-button span").onclick = async function () {
 
   // * 2. Ask for Timer Mode
   let count = document.querySelector(".timer");
-  let playWithTimer =    timerChoice = await Swal.fire({
+  let playWithTimer = await Swal.fire({
     title: '⏱ Play with Timer?',
     text: 'Do you want to enable timer mode?',
     icon: 'question',
@@ -88,11 +87,11 @@ document.querySelector(".control-button span").onclick = async function () {
       cancelButton: 'my-cancel'
     }
   });
-
+  
   // * Function Play With Timer
   function enablTimer(playWithTimer) {
-    isTimerMode = playWithTimer;
-    if (playWithTimer && count) {
+
+    if (playWithTimer.value && count ) {
       startGameTimer(); // Start the timer
       count.classList.remove("off"); // Show the timer
     } else {
@@ -289,13 +288,19 @@ mode.addEventListener("click", () => {
 });
 
 // * Function Show Play Again
-function showPlayAgainPrompt(message, delay = 0) {
+function showPlayAgainPrompt(message, delay = 10) {
   setTimeout(() => {
-    alert(message);
-    let playAgain = confirm("Are U Wanna Play Again?");
-    if (playAgain) {
-      window.location.reload();
-    }
+    Swal.fire({
+      title: message,
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Play Again',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
+    });
   }, delay);
 }
 

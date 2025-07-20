@@ -38,7 +38,7 @@ let greetInterval = setInterval(() => {
       welcomeScreen.remove();
     }, 1000);
   }
-}, 50);
+}, 500);
 
 // * Start Game Button
 document.querySelector(".control-button span").onclick = async function () {

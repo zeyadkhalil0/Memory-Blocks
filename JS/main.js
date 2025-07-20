@@ -45,7 +45,6 @@ document.querySelector(".control-button span").onclick = async function () {
     const { value: text } = await Swal.fire({
     title: " What's Your Name?",
     input: "text",
-    inputLabel: "Your Name",
     inputPlaceholder: "Type your name here...",
     inputAttributes: {
       "aria-label": "Type your Name here"

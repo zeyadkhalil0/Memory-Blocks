@@ -19,8 +19,8 @@ const messages = [
   "メモリーブロックゲームへようこそ", // Japanese
   "Bem-vindo ao jogo Memory Blocks", // Portuguese
   "Made By Dev Zeyad Khalil", // Final message
-  " ", 
-  " ", 
+  " ",
+  " ",
 ];
 let greetIndex = 0;
 let greetInterval = setInterval(() => {
@@ -38,20 +38,57 @@ let greetInterval = setInterval(() => {
       welcomeScreen.remove();
     }, 1000);
   }
-}, 500);
+}, 50);
 
 // * Start Game Button
-document.querySelector(".control-button span").onclick = function () {
+document.querySelector(".control-button span").onclick = async function () {
   // * 1. Get player name
-  let yourname = prompt("What's Your Name?");
-  if (!yourname || yourname.trim() === "") {
-    document.querySelector(".name span").textContent = "Unknown";
-  } else {
-    document.querySelector(".name span").textContent = yourname;
-  }
+    const { value: text } = await Swal.fire({
+    title: " What's Your Name?",
+    input: "text",
+    inputLabel: "Your Name",
+    inputPlaceholder: "Type your name here...",
+    inputAttributes: {
+      "aria-label": "Type your Name here"
+    },
+    showCancelButton: true,
+    confirmButtonText: "Continue",
+    cancelButtonText: "Cancel",
+    background: "#37375fff",
+    color: "#fff",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    customClass: {
+      popup: 'my-swal',
+      confirmButton: 'my-confirm',
+      cancelButton: 'my-cancel'
+    }
+  });
+
+  // 2. Handle name
+  let userName = (text && text.trim() !== "") ? text : "Unknown";
+  document.querySelector(".name span").textContent = userName;
+
   // * 2. Ask for Timer Mode
-  let playWithTimer = confirm("Do you wanna play with timer?");
   let count = document.querySelector(".timer");
+  let playWithTimer =    timerChoice = await Swal.fire({
+    title: '⏱ Play with Timer?',
+    text: 'Do you want to enable timer mode?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, play with timer',
+    cancelButtonText: 'No, play without',
+    background: "#37375fff",
+    color: "#fff",
+    confirmButtonColor: "#00b894",
+    cancelButtonColor: "#d63031",
+    customClass: {
+      popup: 'my-swal',
+      confirmButton: 'my-confirm',
+      cancelButton: 'my-cancel'
+    }
+  });
+
   // * Function Play With Timer
   function enablTimer(playWithTimer) {
     isTimerMode = playWithTimer;
@@ -93,7 +130,6 @@ document.querySelector(".control-button span").onclick = function () {
     } else if (selectedLevel === "hard") {
       seconds = 40; //? Time For intermediate Level
       allCards.forEach((card) => card.classList.remove("hide")); // Show all cards
-      
     }
     // * Start Timer After Choose Level and Show footer
     enablTimer(playWithTimer);

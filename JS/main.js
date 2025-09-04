@@ -40,7 +40,7 @@ let greetInterval = setInterval(() => {
 }, 500);
 
 // * Start Game Button
-document.querySelector(".control-button span").onclick = async function () {
+document.querySelector(".control-button").onclick = async function () {
   // * 1. Get player name
     const { value: text } = await Swal.fire({
     title: " What's Your Name?",
